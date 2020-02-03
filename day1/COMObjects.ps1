@@ -54,10 +54,10 @@ $winshell.minimizeAll()
 get-process winword
 
 #Open a word document in PowerShell
-$Word = New-Object -ComObject Word.Application	->   Note the application is running but bot yet visible	
+$Word = New-Object -ComObject Word.Application	#->   Note the application is running but bot yet visible	
 
 #Look at running word processes
-get-process winword				-> Should be 1 more now while it is not visible on screen
+get-process winword			#	-> Should be 1 more now while it is not visible on screen
 
 Make word visible
 $Word.Visible = $True
