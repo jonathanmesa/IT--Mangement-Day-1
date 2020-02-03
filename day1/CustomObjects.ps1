@@ -56,3 +56,23 @@ foreach ( $file in Get-ChildItem -Path c:\windows -file )
 
 
 $Result4 
+
+
+#Example 
+
+$computerInfo = Get-CimInstance 'Win32_ComputerSystem' # contains information from Get-CimInstance Win32_ComputerSystem.
+$osInfo =  Get-CimInstance 'Win32_OperatingSystem'#  contains information from Get-CimInstance Win32_OperatingSystem.
+$diskInfo = Get-CimInstance 'Win32_LogicalDisk' # contains information from Get-CimInstance Win32_LogicalDisk.
+
+[hashtable]$objectProperty = @{}
+
+$objectProperty.Add('ComputerName',$computerInfo.Name)
+$objectProperty.Add('OS',$osInfo.Caption)
+$objectProperty.Add('OS Version',$("$($osInfo.Version) Build $($osInfo.BuildNumber)"))
+$objectProperty.Add('Domain',$computerInfo.Domain)
+$objectProperty.Add('DomainJoined',$computerInfo.PartOfDomain)
+$ObjectProperty.Add('Disks',$diskInfo)
+
+
+$ourObject = New-Object -TypeName psobject -Property $objectProperty
+$ourObject 
