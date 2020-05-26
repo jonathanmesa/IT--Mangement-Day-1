@@ -23,7 +23,7 @@ Get-WMIObject –Class CIM_PhysicalMemory
 Get-CIMInstance –Class Win32_PhysicalMemory
 
 #Using WQL:
-Get-CIMInstance -Query 'SELECT * FROM Win32_process WHERE PageFileUsage > 50000’ 
+Get-CIMInstance -Query "SELECT * FROM Win32_process WHERE PageFileUsage > 50000" 
 
 #Removing a folder
 #New-Item -Type Directory -Path c:\cimtest
