@@ -84,5 +84,3 @@ $word
 
 #Recreate a new word document this time use strict switch to see it is using the .NET COM Interop
 $Word2 = New-Object -ComObject Word.Application -strict
-
-#Jonathan
