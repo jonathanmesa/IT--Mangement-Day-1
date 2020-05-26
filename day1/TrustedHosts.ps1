@@ -3,7 +3,7 @@
 # Using Kerberos - works
 Invoke-Command -ComputerName MS.Contoso.Local -ScriptBlock {"Testing Trustedhosts"} -Credential Contoso\Power
 
-# Using NTLM – does not work
+# Using NTLM  does not work
 Invoke-Command -ComputerName 192.168.1.2 -ScriptBlock {"Testing Trustedhosts"} -Credential Contoso\Power
 
 <#Comment on: 
@@ -17,15 +17,15 @@ winrm.cmd to configure TrustedHosts. Note that computers in the TrustedHosts lis
 Get-Item -Path WSMan:\localhost\Client\TrustedHosts
 
 # Add IP to TrustedHosts for MS.contoso.local
-Set-Item -Path WSMan:\localhost\Client\TrustedHosts -value 192.168.1.2 –Force	# apply settings
+Set-Item -Path WSMan:\localhost\Client\TrustedHosts -value 192.168.1.2 ï¿½Force	# apply settings
 Get-Item -Path WSMan:\localhost\Client\TrustedHosts			# confirm settings
 
-# Using NTLM – Now works
+# Using NTLM  Now works
 Invoke-Command -ComputerName 192.168.1.2 -ScriptBlock {"Testing Trustedhosts"} -Credential Contoso\Power
 
 
 # Remove TrustedHosts
-Set-Item -Path WSMan:\localhost\Client\TrustedHosts –value ’’ –Force				# Back to default
+Set-Item -Path WSMan:\localhost\Client\TrustedHosts â€“value "" â€“Force			# Back to default
 Invoke-Command -ComputerName 192.168.1.2 -ScriptBlock {"Testing Trustedhosts"} -Credential Contoso\Power	# Does not work again
 
 

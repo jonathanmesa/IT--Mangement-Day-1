@@ -3,7 +3,7 @@
 #Result displayed as expected, comment on the property PSComputerName
 Invoke-Command -ComputerName MS -ScriptBlock {Get-Service -Name BITS}
 
-#If you check the members, you’ll notice that you are working with Deserialized object (Deserialized.System.ServiceProcess.ServiceController), as it was transferred trough the network and methods are missing. 
+#If you check the members, you'll notice that you are working with Deserialized object (Deserialized.System.ServiceProcess.ServiceController), as it was transferred trough the network and methods are missing. 
 #Similar to Export-CliXML, Import-CliXMl 
 
 Invoke-Command -ComputerName MS -ScriptBlock {Get-Service -Name BITS} | Get-Member
