@@ -3,7 +3,7 @@
 $customobject = new-object -TypeName PSCustomObject		#-> Note it is empty by default 
 
 #Validate it is empty
-$customobject
+$customobject 
 
 #Show that Custom Object is an empty template that you can use to add types to.
 #Use the custom object to restructure the data  about the c:\windows location.
@@ -77,4 +77,3 @@ $ObjectProperty.Add('Disks',$diskInfo)
 $ourObject = New-Object -TypeName psobject -Property $objectProperty
 $ourObject 
 
-#Jonathan
